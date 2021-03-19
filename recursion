@@ -1,0 +1,27 @@
+#include <iostream> 
+using namespace std; 
+void permuted(string a, int x, int y) 
+{ 
+	if (x == y) 
+		cout<<a<<endl; 
+	else
+	{ 
+		for (int i = x; i <= y; i++) 
+		{ 
+			swap(a[x], a[i]); 
+			permuted(a, x+1, y); 
+		    swap(a[x], a[i]); 
+		} 
+	} 
+} 
+
+int main() 
+{ 
+    cout<<"Enter  "<<endl;
+
+	string str ;
+    cin>>str;
+	int n = str.size(); 
+	permuted(str, 0, n-1); 
+	return 0; 
+} 
