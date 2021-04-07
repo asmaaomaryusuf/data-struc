@@ -1,0 +1,106 @@
+#include<iostream>
+using namespace std;
+#define cap 5
+class List {
+	int size = 0;
+	int data[cap];
+    int top=0;
+public:
+	bool pushback(int val) {
+		if (top>=cap) {
+			cout << "sorry list is full " << endl;
+			return false;
+		}
+		else {
+            top++;
+            data[size] = val;
+			size++;
+			return true;
+		}
+	}
+	bool remove(int pos) {
+		if ((pos-1)<0||(pos-1)>size) {
+			cout << "Error 404" << endl;
+			return false;
+	   }
+		else {
+          top--;
+          for(int i=(pos-1);i<=size-1;i++){
+            data[i]=data[i+1];
+          }
+          size--;
+          cout <<"the "<<pos<<"th element has already removed & its val = "<< data[pos-1]<<endl;
+          return true;	
+		}
+	}
+    int length(){
+      cout<<size<<endl;
+      return size;
+    }
+ int get(int pos){
+   if ((pos-1)<0||(pos-1)>=size) {
+			cout << "there is no element" << endl;
+     return 0;
+     }
+   else{
+   cout<<data[pos-1]<<endl;
+   return data[pos-1];
+     }
+ }
+bool set(int pos,int val){
+  if ((pos-1)<0||(pos-1)>size) {
+			cout << "this opration can not be done" << endl;
+     return 0;
+     }
+else{
+  data[pos-1]=val;
+  cout<< "data of postion "<<pos<<"="<<val<<endl;
+  return 1;
+}  
+}
+bool pushfront(int val) {
+		if (size>=cap) {
+			cout << "sorry list is full " << endl;
+			return false;
+		}
+		else {
+			size++;
+           
+          for(int i=top+1;i>0;i--)
+            {
+              data[i+1]=data[i];
+            }
+         
+			return true;
+		}
+	}
+int show(){
+  for(int i=0;i<size;i++)
+            {
+              cout<<data[i]<<endl;
+            }
+  return 1;
+}
+};
+int main() {
+  List l;
+  l.pushback(9);
+  l.pushback(99);
+  l.pushback(999);
+  l.pushback(99);
+  l.pushback(9);
+  l.pushback(99);
+l.show();
+  l.remove(3);
+  l.show();
+  l.remove(-3);
+  l.length();
+  l.get(2);
+  l.get(-1);
+  l.get(5);
+  l.set(1,111);
+  l.set(7,17);
+  l.pushfront(4);
+  l.show();
+           
+}
