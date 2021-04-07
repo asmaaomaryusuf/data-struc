@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+class Node {
+public:
+    char data;
+	Node* next;
+};
+int main() {
+	Node* head = new Node();
+    Node* second = new Node();
+    Node* third = new Node();
+    Node* fourth = new Node();
+	Node* last=new Node();
+	head->data = 'A';
+	head->next=second;
+	second->data='s';
+    second->next=third;
+    third->data='m';
+    third->next=fourth;
+	fourth->data='a';
+    fourth->next=last;
+    last->data='a';
+   cout << head->data<<second->data<<third->data<<fourth->data<<fourth->next->data<<endl ;
+   
+
+	return 0;
+}
