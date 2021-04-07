@@ -1,4 +1,3 @@
-# data-struc
 #include<iostream>
 using namespace std;
 #define cap 5
@@ -23,34 +22,37 @@ public:
 
 		if (top < 0) {
 			cout << "stack is empty" << endl;
-			return 0;
+			return false;
 	   }
 		else {
 			int element = arr[top];
 			top--;
 			cout << "the element is poped" << endl;
-			return 1;
+			return true;
 		}
 
 	}
 	int getMin() {
-		int smallest = arr[0];
-		for (int i = 0;i < 5;i++) {
-			arr[i] = smallest;
-		}
-		cout << smallest << endl;
+		int temp = arr[0];
+   for(int i=0; i<5; i++) {
+      if(temp>arr[i]) {
+         temp=arr[i];
+      }
+   }
+      cout<<temp;
+   return temp;
 	}
 
 
 };
 int main() {
 	stack stack;
-	stack.push(1);
-	stack.push(2);
-	stack.push(3);
-	stack.push(4);
 	stack.push(5);
-  stack.pop();
-  stack.getMin();
+	stack.push(2);
+	stack.push(1);
+	stack.push(4);
+	stack.push(6);
+    stack.pop();
+    stack.getMin();
 
 }
