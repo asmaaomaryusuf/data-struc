@@ -102,6 +102,7 @@ l.show();
   l.set(1,111);
   l.set(7,17);
   l.pushfront(8);
+  l.pushfront(7);
   l.show();
            
 }
