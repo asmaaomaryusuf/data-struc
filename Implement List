@@ -19,17 +19,18 @@ public:
 		}
 	}
 	bool remove(int pos) {
-		if ((pos-1)<0||(pos-1)>size) {
+		if ((pos-1)<0) {
 			cout << "Error 404" << endl;
 			return false;
 	   }
 		else {
-          top--;
-          for(int i=(pos-1);i<=size-1;i++){
+          cout <<"the "<<pos<<"th element has already removed & its val = "<< data[pos-1]<<endl;
+          
+          for(int i=pos-1;i<size-1;i++){
             data[i]=data[i+1];
           }
+          top--;
           size--;
-          cout <<"the "<<pos<<"th element has already removed & its val = "<< data[pos-1]<<endl;
           return true;	
 		}
 	}
@@ -56,8 +57,8 @@ else{
   data[pos-1]=val;
   cout<< "data of postion "<<pos<<"="<<val<<endl;
   return 1;
-}  
-}
+  }
+  }
 bool pushfront(int val) {
 		if (size>=cap) {
 			cout << "sorry list is full " << endl;
@@ -92,7 +93,7 @@ int main() {
   l.pushback(99);
 l.show();
   l.remove(3);
-  l.show();
+l.show();
   l.remove(-3);
   l.length();
   l.get(2);
@@ -100,7 +101,7 @@ l.show();
   l.get(5);
   l.set(1,111);
   l.set(7,17);
-  l.pushfront(4);
+  l.pushfront(8);
   l.show();
            
 }
